@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vspexplorers
+  namespace: cc-uc-other-vspexplorers
+data:
+  videobill.db.ip: 172.30.183.80
+  videobill.db.user: videobill
+  videobill.db.password: vspexplorers
+  videobill.db.name: videobill
+  videobill.watson.trans.key: Sl7QDoQDH3sAT5Fp0PGDhAsL2jZrROF0XCU8llJX0stu
+  videobill.watson.trans.url: https://api.us-south.language-translator.watson.cloud.ibm.com/instances/802da60f-a628-48df-9d76-d1c44e587909/v3/translate?version=2018-05-01
+  videobill.watson.tts.key: n6xPr6FV6dDoJhcf8RaPQga0Toy4_mD1XDn6VRahgISE
+  videobill.watson.tts.url: https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/9795079f-5421-429f-98ea-87fb790d6230/v1/synthesize

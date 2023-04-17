@@ -1,0 +1,170 @@
+psql -h videobill-db-2-vpwn8 -U videobill -W -d videobill 
+
+=================> default
+
+<?php
+$mydata = <<<JDATA
+{
+  "translations" : [ {
+    "translation" : "Bonjour JosÃ© Feliciano ! ! Bienvenue dans votre vidÃ©o ! !"
+  } ],
+  "word_count" : 8,
+  "character_count" : 51
+}
+JDATA;
+
+$odata = json_decode($mydata)->{'translations'};
+print_r($odata[0]->{'translation'});
+
+-------------------------------------------------------------------------------------
+stdClass Object
+(
+    [translations] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [translation] => Bonjour JosÃ© Feliciano ! ! Bienvenue dans votre vidÃ©o ! !
+                )
+
+        )
+
+    [word_count] => 8
+    [character_count] => 51
+)
+
+
+
+
+=================> 1
+[1] => Array
+        (
+            [0] => Array
+                (
+                    [0] => 4
+                    [1] => 7
+                    [2] => 7
+                    [3] => 7
+                    [4] => 10
+                )
+
+            [1] => Array
+                (
+                    [0] => {
+  "translations" : [ {
+    "translation" : "Il y a des vieux billets qui ne sont pas encore payÃ©s.  Ce sont ... "
+  } ],
+  "word_count" : 10,
+  "character_count" : 53
+}
+                    [1] => {
+  "translations" : [ {
+    "translation" : "Facture 111 a un montant total 171,35 â‚¬, "
+  } ],
+  "word_count" : 6,
+  "character_count" : 35
+}
+                    [2] => {
+  "translations" : [ {
+    "translation" : "La facture 112 a un montant total de 111,26 â‚¬, et "
+  } ],
+  "word_count" : 7,
+  "character_count" : 40
+}
+                    [3] => {
+  "translations" : [ {
+    "translation" : "Facture 113 a le montant total 142,83 â‚¬, "
+  } ],
+  "word_count" : 6,
+  "character_count" : 35
+}
+                    [4] => {
+  "translations" : [ {
+    "translation" : "Veuillez payer les montants de ces factures en attente dÃ¨s que possible pour les services non interliÃ©s."
+  } ],
+  "word_count" : 13,
+  "character_count" : 85
+}
+                )
+
+
+
+
+
+
+=========================> 3
+   [3] => Array
+        (
+            [0] => Array
+                (
+                    [0] => 20
+                    [1] => {
+  "translations" : [ {
+    "translation" : "Le service GSM 6 6 3 1 9 0 5 0 6 a les frais sont ... forfait mensuel de base, 3â‚¬. Total des usages 86,55 â‚¬. RÃ©duction 10 â‚¬ applicable individuellement pour chaque type d'utilisation. "
+  } ],
+  "word_count" : 37,
+  "character_count" : 194
+}
+                    [2] => Array
+                        (
+                            [0] => GSM
+                            [1] => 663190506
+                            [2] => Basic Telephone Package
+                            [3] => 3.00 â‚¬
+                            [4] => 0.00 â‚¬
+                            [5] => 86.55 â‚¬
+                            [6] => 10 â‚¬
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [0] => 10
+                    [1] => {
+  "translations" : [ {
+    "translation" : "Le service Landline V 7 0 9 9 0 2 9 8 a les frais sont ... mensuel Plan TV, 20 â‚¬. "
+  } ],
+  "word_count" : 22,
+  "character_count" : 91
+}
+                    [2] => Array
+                        (
+                            [0] => Landline
+                            [1] => V70990298
+                            [2] => Plan TV
+                            [3] => 20.00 â‚¬
+                            [4] => 0.00 â‚¬
+                            [5] => 0.00 â‚¬
+                            [6] => 
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [0] => 15
+                    [1] => {
+  "translations" : [ {
+    "translation" : "Le service de tÃ©lÃ©vision 9 9 9 4 5 2 6 2 0 a les frais sont ... plan mensuel Plan intÃ©grÃ© Voix + DonnÃ©es 100 MB, 15 â‚¬. Total des usages 6,75 â‚¬. "
+  } ],
+  "word_count" : 29,
+  "character_count" : 140
+}
+                    [2] => Array
+                        (
+                            [0] => Television
+                            [1] => 999452620
+                            [2] => Plan Integrated Voice +Data 100 MB
+                            [3] => 15.00 â‚¬
+                            [4] => 0.00 â‚¬
+                            [5] => 6.75 â‚¬
+                            [6] => 
+                        )
+
+                )
+
+        )
+
+
+
+
