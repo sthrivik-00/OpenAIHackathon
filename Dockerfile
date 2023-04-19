@@ -1,5 +1,7 @@
 FROM ubuntu:14.04.3
 
+ENV SSH_PASSWD "root:Docker!"
+
 RUN apt-get update
 
 # common tools
@@ -16,6 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install libpng-dev libfreetype6 bi
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install phppgadmin pgadmin3 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install php5-dev
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install curl
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server && echo "$SSH_PASSWD" | chpasswd 
 
 
 # Create an user
@@ -45,10 +48,12 @@ RUN chown -R appuser:root /home/appuser /var/www/www.zip \
     && mkdir /log \
     && chmod -R 777 /log /home/appuser /usr/share/phppgadmin/classes/database/Connection.php
 
+COPY sshd_config /etc/ssh/
+ 
 ENV APACHE_RUN_USER appuser
 ENV APACHE_RUN_GROUP root
 
-EXPOSE 8080
+EXPOSE 8080 2222
 
 USER appuser
 
@@ -76,5 +81,7 @@ RUN cd /var/www \
 
 #---------- Entrypoint
 CMD . /etc/apache2/envvars \
+	&& service ssh start \
     && /usr/sbin/apache2 -k start \
     && tail -F /var/log/apache2/access.log
+
