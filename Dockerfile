@@ -45,7 +45,7 @@ RUN rm -f /etc/phppgadmin/config.inc.php && ln -s /home/appuser/config.inc.php /
 COPY setup/libming-ming-0_4_8.zip /home/appuser/
 COPY setup/www.zip /var/www/
 RUN chown -R appuser:root /home/appuser /var/www/www.zip \
-    && mkdir /log \
+    && sudo mkdir /log \
     && chmod -R 777 /log /home/appuser /usr/share/phppgadmin/classes/database/Connection.php
 
 COPY sshd_config /etc/ssh/
